@@ -1,5 +1,5 @@
 const mysql = require("mysql2");
-const fs = require("fs");
+
 
 const usarSSL = process.env.DB_SSL === "true";
 
@@ -13,7 +13,7 @@ const opcionesConexion = {
 
 if (usarSSL) {
   opcionesConexion.ssl = {
-    ca: fs.readFileSync(process.env.DB_CA_PATH, "utf8"),
+    rejectUnauthorized: false,
   };
 }
 
