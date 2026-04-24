@@ -2,8 +2,9 @@
   "name": "classassist-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/servidor.js",
   "scripts": {
+    "start": "node src/servidor.js",
     "dev": "nodemon src/servidor.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
