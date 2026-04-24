@@ -52,3 +52,6 @@ app.get("/", (req, res) => {
 });
 
 module.exports = app;
+
+const initDbRutas = require("./rutas/initDbRutas");
+app.use("/api/init-db", initDbRutas);
