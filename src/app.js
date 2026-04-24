@@ -5,10 +5,27 @@ const app = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (origin.includes("localhost")) {
+        return callback(null, true);
+      }
+
+      if (origin.endsWith(".netlify.app")) {
+        return callback(null, true);
+      }
+
+      if (origin === process.env.FRONTEND_URL) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("No permitido por CORS"));
+    },
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use("/selfies", express.static("selfies"));
 

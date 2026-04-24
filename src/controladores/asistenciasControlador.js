@@ -1,5 +1,5 @@
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:4000";
+const BACKEND_URL = process.env.BACKEND_URL;
 const conexion = require("../configuracion/conexion");
 const QRCode = require("qrcode");
 
