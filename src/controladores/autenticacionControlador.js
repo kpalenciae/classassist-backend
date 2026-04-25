@@ -1,7 +1,7 @@
 const conexion = require("../configuracion/conexion");
 
 const iniciarSesion = (req, res) => {
-  const { correo, contrasena } = req.body;
+  const { correo, password } = req.body;
 
   const consulta = "SELECT * FROM usuarios WHERE correo = ?";
 
@@ -17,7 +17,7 @@ const iniciarSesion = (req, res) => {
 
     const usuario = resultados[0];
 
-    if (usuario.password !== contrasena) {
+    if (usuario.contrasena !== password) {
       return res.status(401).json({ mensaje: "Contraseña incorrecta" });
     }
 
